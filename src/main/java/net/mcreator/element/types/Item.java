@@ -61,6 +61,7 @@ import java.util.*;
 	public int stackSize;
 	public int enchantability;
 	public int useDuration;
+	public boolean isUnbreakable;
 	public double toolType;
 	public int damageCount;
 	public MItemBlock recipeRemainder;
@@ -75,6 +76,9 @@ import java.util.*;
 
 	public StringListProcedure specialInformation;
 	public LogicProcedure glowCondition;
+
+	//For bool 'isUnbreakable'
+	public double maxValue = Double.POSITIVE_INFINITY
 
 	@Nullable @ModElementReference public String guiBoundTo;
 	public int inventorySize;
@@ -223,6 +227,10 @@ import java.util.*;
 
 	public boolean hasBannerPatterns() {
 		return !providedBannerPatterns.isEmpty();
+	}
+
+	public boolean isEverlasting() {
+		return isUnbreakable && useDuration == maxValue;
 	}
 
 	public String getPatternDescription() {
