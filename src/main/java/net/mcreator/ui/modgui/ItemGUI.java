@@ -93,6 +93,7 @@ public class ItemGUI extends ModElementGUI<Item> {
 	private final JSpinner toolType = new JSpinner(new SpinnerNumberModel(1.0, -100.0, 128000.0, 0.1));
 	private final JSpinner damageCount = new JSpinner(new SpinnerNumberModel(0, 0, 128000, 1));
 
+	private final JCheckBox isUnbreakable = L10N.checkbox("elementgui.common.enable");
 	private final JCheckBox immuneToFire = L10N.checkbox("elementgui.common.enable");
 	private final JCheckBox destroyAnyBlock = L10N.checkbox("elementgui.common.enable");
 	private final JCheckBox stayInGridWhenCrafting = L10N.checkbox("elementgui.common.enable");
@@ -351,6 +352,10 @@ public class ItemGUI extends ModElementGUI<Item> {
 		subpane2.add(HelpUtils.wrapWithHelpButton(this.withEntry("item/immune_to_fire"),
 				L10N.label("elementgui.item.is_immune_to_fire")));
 		subpane2.add(immuneToFire);
+
+		subpane2.add(HelpUtils.wrapWithHelpButton(this.withEntry("item/is_unbreakable"),
+				L10N.lable("elementgui.item.is_unbreakable")));
+		subpane2.add(isUnbreakable);
 
 		subpane2.add(HelpUtils.wrapWithHelpButton(this.withEntry("item/can_destroy_any_block"),
 				L10N.label("elementgui.item.can_destroy_any_block")));
@@ -853,3 +858,4 @@ public class ItemGUI extends ModElementGUI<Item> {
 	}
 
 }
+
