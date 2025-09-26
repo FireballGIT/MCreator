@@ -43,7 +43,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.awt.image.BufferedImage;
 import java.util.*;
-
 @SuppressWarnings({ "unused", "NotNullFieldNotInitialized" }) public class Item extends GeneratableElement
 		implements IItem, IItemWithModel, ITabContainedElement, ISpecialInfoHolder, IItemWithTexture {
 
@@ -57,12 +56,15 @@ import java.util.*;
 
 	@ModElementReference @ResourceReference("animation") public List<AnimationEntry> animations;
 
+	public double posInf = Double.POSITIVE_INFINITY;
+
 	public String name;
 	public String rarity;
 	@ModElementReference public List<TabEntry> creativeTabs;
 	public int stackSize;
 	public int enchantability;
 	public int useDuration;
+	public bool isUnbreakable;
 	public double toolType;
 	public int damageCount;
 	public MItemBlock recipeRemainder;
@@ -232,6 +234,10 @@ import java.util.*;
 				.startsWith("CUSTOM:");
 	}
 
+	public boolean isEverlasting() {
+		return isUnbreakable && useDurability = posInf;
+	}
+
 	public boolean hasBannerPatterns() {
 		return !providedBannerPatterns.isEmpty();
 	}
@@ -365,3 +371,4 @@ import java.util.*;
 	}
 
 }
+
